@@ -33,7 +33,13 @@ def nyc_pigeon_organizer(data)
   end
   
   #lives
-  
+  data[:lives].each do |pigeon_life, pigeon_name|
+    pigeon_name.each do |name|
+      if data[:lives][pigeon_life].include?(name)
+        pigeon_hash[name][:lives] << pigeon_life.to_s
+      end
+    end
+  end
   
   pigeon_hash
 end
